@@ -1,0 +1,75 @@
+<nz-layout class="layout">
+	<nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzBreakpoint]="'xxl'" [nzCollapsedWidth]="0"
+		[nzZeroTrigger]="zeroTrigger">
+		<div class="logo"></div>
+
+		<ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+			<li nz-menu-item (click)="goHome()">
+				<i nz-icon nzType="home" nzTheme="outline"></i>
+
+				<span>Home</span>
+			</li>
+
+			<li *ngIf="!authService.isLoggedIn; else blogLogged" nz-menu-item (click)="goBlogView()">
+				<i nz-icon nzType="form" nzTheme="outline"></i>
+
+				<span>Blog</span>
+			</li>
+
+			<ng-template #blogLogged>
+				<li nz-submenu nzTitle="Blog" nzIcon="form">
+					<ul>
+						<li nz-menu-item (click)="goBlogRegister()">Cadastrar</li>
+						<li nz-menu-item (click)="goBlogView()">Visualizar</li>
+					</ul>
+				</li>
+			</ng-template>
+		</ul>
+	</nz-sider>
+
+	<nz-layout>
+		<nz-header class="header" *ngIf="!authService.isLoggedIn; else headerLogged">
+			<img class="logo-header" src="assets/logo_horizontal_white.png" />
+
+			<button nz-button nzType="danger" nzShape="round" (click)="login()">
+				<i nz-icon nzType="login"></i>Login
+			</button>
+		</nz-header>
+
+		<ng-template #headerLogged>
+			<nz-header class="header">
+				<img class="logo-header" src="assets/logo_horizontal_white.png" />
+
+				<nz-badge class="user-badge" [nzCount]="notificationsCount">
+					<nz-avatar nzSize="large" nzIcon="user" [nzSrc]="user.photoURL" nz-dropdown
+						[nzDropdownMenu]="userOptions">
+					</nz-avatar>
+				</nz-badge>
+
+				<nz-dropdown-menu #userOptions="nzDropdownMenu">
+					<ul nz-menu>
+						<li nz-menu-item>{{ user.displayName ? user.displayName : 'Usuário' }}</li>
+						<li nz-menu-item>{{ user.email }}</li>
+						<li nz-menu-divider></li>
+						<li nz-menu-item>Minha Conta</li>
+						<li nz-menu-item>Notificações <nz-badge [nzCount]="notificationsCount"></nz-badge>
+						</li>
+						<li nz-menu-divider></li>
+						<li nz-menu-item (click)="authService.logout()">Sair</li>
+					</ul>
+				</nz-dropdown-menu>
+			</nz-header>
+		</ng-template>
+
+
+		<nz-content>
+			<router-outlet></router-outlet>
+		</nz-content>
+
+		<nz-footer>Ant Design ©2019 Implement By Angular</nz-footer>
+	</nz-layout>
+</nz-layout>
+
+<ng-template #zeroTrigger style="margin-top: 30px">
+	<i nz-icon nzType="menu-fold" nzTheme="outline"></i>
+</ng-template>

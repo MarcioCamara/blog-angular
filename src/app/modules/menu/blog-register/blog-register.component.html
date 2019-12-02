@@ -1,0 +1,92 @@
+<nz-content class="content">
+    <div class="inner-content vgroup">
+        <nz-page-header nzBackIcon>
+            <nz-breadcrumb nz-page-header-breadcrumb>
+                <nz-breadcrumb-item>Blog</nz-breadcrumb-item>
+                <nz-breadcrumb-item>
+                    <a>Registrar</a>
+                </nz-breadcrumb-item>
+            </nz-breadcrumb>
+
+            <nz-page-header-title>Cadastrar Postagem</nz-page-header-title>
+        </nz-page-header>
+
+        <div class="block f1">
+            <form nz-form [formGroup]="blogForm" (ngSubmit)="submitForm(blogForm.value)">
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="7" nzRequired>Imagem</nz-form-label>
+
+                    <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validando..."
+                        [nzErrorTip]="imageErrorTpl">
+                        <div class="clearfix">
+                            <nz-upload nzAction="save" nzListType="picture-card" [(nzFileList)]="fileList"
+                                [nzShowButton]="fileList.length === 0" [nzShowUploadList]="showUploadList"
+                                [nzPreview]="handlePreview">
+                                <i nz-icon nzType="plus"></i>
+                                <div class="ant-upload-text">Upload</div>
+                            </nz-upload>
+
+                            <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"
+                                (nzOnCancel)="previewVisible = false">
+                                <ng-template #modalContent>
+                                    <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+                                </ng-template>
+                            </nz-modal>
+                        </div>
+
+                        <ng-template #imageErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('invalid')">
+                                O tipo de arquivo selecionado não é valido!
+                            </ng-container>
+                        </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="7" nzRequired>Nome</nz-form-label>
+
+                    <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validando..."
+                        [nzErrorTip]="nameErrorTpl">
+                        <input nz-input formControlName="name" placeholder="Nome da publicação" minlength="3" />
+
+                        <ng-template #nameErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required') || control.hasError('minlength')">
+                                O nome precisa ter ao menos 3 caractéres!
+                            </ng-container>
+
+                            <ng-container *ngIf="control.hasError('duplicated')">
+                                Já existe uma postagem cadastrada com esse nome!
+                            </ng-container>
+                        </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="7" nzRequired>Texto</nz-form-label>
+
+                    <nz-form-control [nzSpan]="12" nzErrorTip="Escreva o texto da postagem!">
+                        <textarea formControlName="note" nz-input rows="3"
+                            [placeholder]="this.blogForm.value.name ? 'Discorra sobre o assunto da publicação ' + this.blogForm.value.name : 'Descorra sobre o assunto'"></textarea>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item class="hgroup tags-form-item">
+                    <nz-form-label [nzSpan]="7">Tags</nz-form-label>
+
+                    <div *ngFor="let tag of tags">
+                        <nz-tag nzMode="checkable" [nzChecked]="tag.checked" (nzCheckedChange)="checkChange($event)">
+                            #{{ tag.name }}
+                        </nz-tag>
+                    </div>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control [nzOffset]="7" [nzSpan]="12">
+                        <button nz-button nzType="primary" [disabled]="!blogForm.valid">Enviar</button>
+                        <button nz-button (click)="resetForm($event)" class="margin-horizontal">Limpar</button>
+                    </nz-form-control>
+                </nz-form-item>
+            </form>
+        </div>
+    </div>
+</nz-content>
