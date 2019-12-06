@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "site",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -33,6 +33,7 @@
     "@ngx-pwa/local-storage": "^8.2.1",
     "@sweetalert2/ngx-sweetalert2": "^5.0.1",
     "@types/jest": "^24.0.11",
+    "angular-cli-ghpages": "^0.6.0",
     "core-js": "^3.2.1",
     "firebase": "^7.5.0",
     "jquery": "^3.4.1",

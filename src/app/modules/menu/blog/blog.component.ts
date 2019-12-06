@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NzFormatEmitEvent } from 'ng-zorro-antd/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -63,10 +64,17 @@ Commodo nulla facilisi nullam vehicula. Leo duis ut diam quam nulla porttitor ma
     {
       href: 'http://ant.design',
       title: 'Teste de Post 1',
-      avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
       description: 'Descrição do Teste de Post 1 que simula a descrição real',
       imageSource: 'https://blog.geekhunter.com.br/wp-content/uploads/2019/07/angular8-min-1-750x410.jpg',
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis mauris sit amet. Amet volutpat consequat mauris nunc congue nisi.',
+      favorites: 48,
+      likes: 259,
+      comments: 154,
+      date: '2019-12-06 11:00:00',
+      author: {
+        name: 'Marcio Câmara',
+        imageSource: 'https://lh3.googleusercontent.com/a-/AAuE7mCFJLcx8aqPuf78zDzsRKwuXDHLLRYet_Nei813UQ',
+      },
     },
     {
       href: 'http://ant.design',
@@ -75,6 +83,14 @@ Commodo nulla facilisi nullam vehicula. Leo duis ut diam quam nulla porttitor ma
       description: 'Descrição do Teste de Post 2 que simula a descrição real',
       imageSource: 'https://ionicframework.com/blog/wp-content/uploads/2019/01/ionic-4-final.png',
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis mauris sit amet. Amet volutpat consequat mauris nunc congue nisi.',
+      favorites: 45,
+      likes: 235,
+      comments: 895,
+      date: '2019-12-05 13:00:00',
+      author: {
+        name: 'Marcio Câmara',
+        imageSource: 'https://lh3.googleusercontent.com/a-/AAuE7mCFJLcx8aqPuf78zDzsRKwuXDHLLRYet_Nei813UQ',
+      },
     },
     {
       href: 'http://ant.design',
@@ -83,6 +99,14 @@ Commodo nulla facilisi nullam vehicula. Leo duis ut diam quam nulla porttitor ma
       description: 'Descrição do Teste de Post 3 que simula a descrição real',
       imageSource: 'https://camo.githubusercontent.com/9fc690426bf04fad984b5a71424ecafc02528f51/68747470733a2f2f696d672e616c6963646e2e636f6d2f7466732f544231544646614841766f4b31526a535a467758586369434658612d3130362d3132302e737667',
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis mauris sit amet. Amet volutpat consequat mauris nunc congue nisi.',
+      favorites: 89,
+      likes: 235,
+      comments: 54,
+      date: '2019-12-04 15:00:00',
+      author: {
+        name: 'Marcio Câmara',
+        imageSource: 'https://lh3.googleusercontent.com/a-/AAuE7mCFJLcx8aqPuf78zDzsRKwuXDHLLRYet_Nei813UQ',
+      },
     },
     {
       href: 'http://ant.design',
@@ -91,6 +115,14 @@ Commodo nulla facilisi nullam vehicula. Leo duis ut diam quam nulla porttitor ma
       description: 'Descrição do Teste de Post 4 que simula a descrição real',
       imageSource: 'https://mdbootstrap.com/wp-content/uploads/2019/02/main.jpg',
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis mauris sit amet. Amet volutpat consequat mauris nunc congue nisi.',
+      favorites: 25,
+      likes: 123,
+      comments: 321,
+      date: '2019-12-03 17:00:00',
+      author: {
+        name: 'Marcio Câmara',
+        imageSource: 'https://lh3.googleusercontent.com/a-/AAuE7mCFJLcx8aqPuf78zDzsRKwuXDHLLRYet_Nei813UQ',
+      },
     },
     {
       href: 'http://ant.design',
@@ -99,10 +131,18 @@ Commodo nulla facilisi nullam vehicula. Leo duis ut diam quam nulla porttitor ma
       description: 'Descrição do Teste de Post 5 que simula a descrição real',
       imageSource: 'https://blog.geekhunter.com.br/wp-content/uploads/2019/07/angular8-min-1-750x410.jpg',
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis mauris sit amet. Amet volutpat consequat mauris nunc congue nisi.',
+      favorites: 78,
+      likes: 152,
+      comments: 54,
+      date: '2019-12-02 19:00:00',
+      author: {
+        name: 'Marcio Câmara',
+        imageSource: 'https://lh3.googleusercontent.com/a-/AAuE7mCFJLcx8aqPuf78zDzsRKwuXDHLLRYet_Nei813UQ',
+      },
     },
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -113,5 +153,9 @@ Commodo nulla facilisi nullam vehicula. Leo duis ut diam quam nulla porttitor ma
 
   loadData(post) {
     // AQUI SERÁ FEITO O CARREGAMENTO DE DADOS VIA PAGINATION
+  }
+
+  goPostDetails(post: any) {
+    this.router.navigate(['menu', 'blog', 'details']);
   }
 }

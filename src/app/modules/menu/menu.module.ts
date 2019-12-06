@@ -6,6 +6,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogRegisterComponent } from './blog-register/blog-register.component';
+import { BlogDetailsComponent } from './blog-details/blog-details.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { BlogRegisterComponent } from './blog-register/blog-register.component';
     HomeComponent,
     BlogComponent,
     BlogRegisterComponent,
+    BlogDetailsComponent,
   ],
   imports: [
     MenuRoutingModule,

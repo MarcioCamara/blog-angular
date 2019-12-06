@@ -12,7 +12,7 @@ import { SweetQuestionComponent } from './components/sweet-question/sweet-questi
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'MKSaúde';
+  title = 'Marcio Câmara | Desenvolvimento de Sistemas';
 
   /**
    * Swal options.

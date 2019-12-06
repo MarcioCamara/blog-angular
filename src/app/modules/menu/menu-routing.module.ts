@@ -4,6 +4,7 @@ import { MenuComponent } from './menu.component';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogRegisterComponent } from './blog-register/blog-register.component';
+import { BlogDetailsComponent } from './blog-details/blog-details.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
       },
       {
         path: 'blog/register', component: BlogRegisterComponent,
+      },
+      {
+        path: 'blog/details', component: BlogDetailsComponent, // adicionar id depois
       },
     ],
   },

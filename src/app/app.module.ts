@@ -39,7 +39,7 @@ import { NZ_I18N, pt_BR } from 'ng-zorro-antd/i18n';
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    BrowserModule.withServerTransition({ appId: 'my-app' }),
+    BrowserModule.withServerTransition({ appId: 'site' }),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
