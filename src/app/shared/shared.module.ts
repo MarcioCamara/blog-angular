@@ -27,7 +27,15 @@ import {
   StarFill,
   LikeFill,
   MessageFill,
+  FacebookOutline,
+  InstagramOutline,
+  GithubOutline,
+  MessageOutline,
+  MailOutline,
 } from '@ant-design/icons-angular/icons';
+
+import { NgxTypedJsModule } from 'ngx-typed-js';
+import { NgxSummernoteModule } from 'ngx-summernote';
 
 const icons: IconDefinition[] = [
   UserOutline,
@@ -47,6 +55,11 @@ const icons: IconDefinition[] = [
   StarFill,
   LikeFill,
   MessageFill,
+  FacebookOutline,
+  InstagramOutline,
+  GithubOutline,
+  MessageOutline,
+  MailOutline,
 ];
 
 @NgModule({
@@ -57,6 +70,8 @@ const icons: IconDefinition[] = [
     ComponentsModule,
     NgZorroAntdModule,
     NzIconModule,
+    NgxTypedJsModule,
+    NgxSummernoteModule,
   ],
   declarations: [],
   exports: [
@@ -65,6 +80,8 @@ const icons: IconDefinition[] = [
     ReactiveFormsModule,
     ComponentsModule,
     NgZorroAntdModule,
+    NgxTypedJsModule,
+    NgxSummernoteModule,
   ],
   providers: [
     { provide: NZ_ICONS, useValue: icons },

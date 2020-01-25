@@ -1,0 +1,54 @@
+.inner-content,
+.container {
+  justify-content: center;
+  display: flex;
+}
+
+.presentation-image {
+  width: 20%;
+  border-radius: 50%;
+}
+
+.about {
+  min-height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadein 1s;
+}
+
+.description-container {
+  min-width: 75%;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.description-text {
+  margin-top: 1.5rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 1.275;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+nz-tag {
+  margin-top: 5px;
+}
+
+.rubber-duck-debugging:hover {
+  background-color: orange !important;
+}

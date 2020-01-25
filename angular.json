@@ -29,9 +29,14 @@
             "styles": [
               "src/styles.scss",
               "node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
-              "src/app/styles/theme.less"
+              "src/app/styles/theme.less",
+              "node_modules/summernote/dist/summernote-lite.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/summernote/dist/summernote-lite.js",
+              "node_modules/summernote/lang/summernote-pt-BR.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

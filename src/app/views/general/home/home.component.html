@@ -1,0 +1,249 @@
+<nz-content class="content">
+    <div class="inner-content vgroup" style="justify-content: center;">
+        <div class="hgroup">
+            <div class="vgroup w100">
+                <div class="f1 w100 container">
+                    <nz-affix class="vgroup affix-social" id="affix-container-target">
+                        <button class="button-social-media" nz-button [nzType]="'primary'" (click)="goToFacebook()">
+                            <i nz-icon nzType="facebook" nzTheme="outline"></i>
+                        </button>
+
+                        <button class="button-social-media" nz-button [nzType]="'primary'" (click)="goToInstagram()">
+                            <i nz-icon nzType="instagram" nzTheme="outline"></i>
+                        </button>
+
+                        <button class="button-social-media" nz-button [nzType]="'primary'" (click)="goToGithub()">
+                            <i nz-icon nzType="github" nzTheme="outline"></i>
+                        </button>
+                    </nz-affix>
+
+                    <ngx-typed-js *ngIf="!typedCompleted" [fadeOut]="true" [strings]="typedStrings" [loop]="true"
+                        [typeSpeed]="40" [backSpeed]="20" (completed)="completedTypedStrings()">
+                        <h1 class="typing"></h1>
+                    </ngx-typed-js>
+
+                    <div *ngIf="typedCompleted" class="about">
+                        <div class="description-container">
+                            <img src="../../../../assets/marcio.jpg" class="presentation-image">
+
+                            <p class="description-text">
+                                Atuo no setor desde meados de <span nz-text><mark>2013</mark></span>.
+                                Tenho experiência no desenvolvimento de sistemas
+                                <span nz-text><mark>ERP</mark></span>, sites
+                                <span nz-text><mark>institucionais</mark></span>,
+                                <span nz-text><mark>aplicativos mobile</mark></span>, entre outros.
+                            </p>
+                        </div>
+
+                        <div class="hgroup">
+                            <nz-card class="f1 margin" nzTitle="Frontend">
+                                Trabalhando com frontend tive a oportunidade de desenvolver várias interfaces
+                                com diferentes funcionalidades, utilizando diversas tecnologias buscando alcançar
+                                os objetivos de UI/UX propostos e tornar o uso da interface o mais agradável e simples
+                                possível
+
+                                <nz-divider nzText="Tecnologias"></nz-divider>
+
+                                <nz-tag [nzColor]="'#DD0031'">
+                                    <a href="https://angular.io/" target="_blank">
+                                        Angular
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#EDD51E'">
+                                    <a href="https://developer.mozilla.org/pt-BR/docs/Aprender/JavaScript"
+                                        target="_blank">
+                                        Javascript
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#007ACC'">
+                                    <a href="https://www.typescriptlang.org/" target="_blank">
+                                        Typescript
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#2BB8E6'">
+                                    <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">
+                                        CSS
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#CF679A'">
+                                    <a href="https://sass-lang.com/" target="_blank">
+                                        SASS
+                                    </a>
+                                </nz-tag>
+                            </nz-card>
+
+                            <nz-card class="f1 margin" nzTitle="Backend">
+                                Enquanto atuando com backend, procurei sempre desenvolver os caminhos para
+                                comunicações entre os usuários e os dados da forma mais simples e rápida possível,
+                                tendo sempre a segurança dos dados como foco principal
+
+                                <nz-divider nzText="Tecnologias"></nz-divider>
+
+                                <nz-tag [nzColor]="'#8B9BC9'">
+                                    <a href="https://www.php.net/manual/pt_BR/intro-whatis.php" target="_blank">
+                                        PHP
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#FF2D20'">
+                                    <a href="https://laravel.com/" target="_blank">
+                                        Laravel
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#0273B4'">
+                                    <a href="https://www.java.com/pt_BR/" target="_blank">
+                                        Java
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#FFA000'">
+                                    <a href="https://firebase.google.com/" target="_blank">
+                                        Firebase
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#F80000'">
+                                    <a href="https://www.oracle.com/br/database/technologies/appdev/plsql.html"
+                                        target="_blank">
+                                        PL/SQL
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#F39112'">
+                                    <a href="https://www.mysql.com/" target="_blank">
+                                        MySQL
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#D33C44'">
+                                    <a href="https://cakephp.org/" target="_blank">
+                                        CakePHP
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#F4645F'">
+                                    <a href="https://lumen.laravel.com/" target="_blank">
+                                        Lumen
+                                    </a>
+                                </nz-tag>
+                            </nz-card>
+
+                            <nz-card class="f1 margin" nzTitle="Outras Ferramentas">
+                                Além de ferramentas focadas em frontend e backend, trabalhei com algumas ferramentas
+                                auxiliares, desde ferramentas focadas em organização de equipe e demandas, até
+                                organização
+                                e melhores práticas de código, versionamento, layout, linguagens não relacionadas a web,
+                                etc.
+
+                                <nz-divider nzText="Tecnologias"></nz-divider>
+
+                                <nz-tag [nzColor]="'#189AB6'">
+                                    <a href="https://www.scrum.org/resources/what-is-scrum" target="_blank">
+                                        Scrum
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#082046'">
+                                    <a href="https://medium.com/joaorobertopb/1-clean-code-o-que-%C3%A9-porque-usar-1e4f9f4454c6"
+                                        target="_blank">
+                                        Clean Code
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#F44D27'">
+                                    <a href="https://git-scm.com/" target="_blank">
+                                        GIT
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#9AADCE'">
+                                    <a href="https://subversion.apache.org/" target="_blank">
+                                        SVN
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#512BD4'">
+                                    <a href="https://dotnet.microsoft.com/apps/xamarin/" target="_blank">
+                                        Xamarin
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#813A89'">
+                                    <a href="https://docs.microsoft.com/pt-br/dotnet/csharp/" target="_blank">
+                                        C#
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#000000'">
+                                    <a href="https://unity.com/pt" target="_blank">
+                                        Unity
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#0769AD'">
+                                    <a href="https://jquery.com/" target="_blank">
+                                        jQuery
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#20B1FF'">
+                                    <a href="https://ng.ant.design/" target="_blank">
+                                        NG-Zorro
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#7952B3'">
+                                    <a href="https://getbootstrap.com/" target="_blank">
+                                        Bootstrap
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#017340'">
+                                    <a href="https://docs.microsoft.com/pt-br/office/vba/library-reference/concepts/getting-started-with-vba-in-office"
+                                        target="_blank">
+                                        VBA
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#DD0031'">
+                                    <a href="https://www.significados.com.br/kanban/" target="_blank">
+                                        Kanban
+                                    </a>
+                                </nz-tag>
+
+                                <nz-tag [nzColor]="'#FFFFFF'" class="rubber-duck-debugging" nz-popover
+                                    [nzPopoverContent]="RDD">
+                                    <a href="https://rubberduckdebugging.com/" target="_blank">
+                                        RDD
+                                    </a>
+                                </nz-tag>
+
+                                <ng-template #RDD>
+                                    <img src="assets/rdd.jpg">
+                                </ng-template>
+                            </nz-card>
+                        </div>
+                    </div>
+
+                    <nz-affix *ngIf="typedCompleted" nzOffsetBottom="0" class="vgroup affix-chatbot" [nzTarget]="target"
+                        id="affix-container-chat">
+                        <button class="button-social-media" nz-button [nzType]="'primary'" nz-popover
+                            nzPopoverTrigger="click" nzPopoverPlacement="leftBottom" [nzPopoverContent]="Chatbot"
+                            (click)="openChatbot()">
+                            <i nz-icon nzType="message" nzTheme="outline"></i>
+                        </button>
+
+                        <ng-template #Chatbot>
+                            <app-chatbot style="max-width: 30vw;"></app-chatbot>
+                        </ng-template>
+                    </nz-affix>
+                </div>
+            </div>
+        </div>
+    </div>
+</nz-content>

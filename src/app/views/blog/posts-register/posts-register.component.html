@@ -1,0 +1,125 @@
+<nz-spin nzTip="Salvando a imagem..." [nzSpinning]="loading">
+
+
+    <nz-content class="content">
+        <div class="inner-content vgroup">
+            <nz-page-header nzBackIcon>
+                <nz-breadcrumb nz-page-header-breadcrumb>
+                    <nz-breadcrumb-item>Post</nz-breadcrumb-item>
+                    <nz-breadcrumb-item>
+                        <a>Cadastrar</a>
+                    </nz-breadcrumb-item>
+                </nz-breadcrumb>
+
+                <nz-page-header-title>Cadastrar Post</nz-page-header-title>
+            </nz-page-header>
+
+            <div class="block f1" style="justify-content: center;">
+                <form nz-form [formGroup]="postForm" (ngSubmit)="submitForm()">
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="7" nzRequired style="text-align: left;">Nome</nz-form-label>
+
+                        <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validando..."
+                            [nzErrorTip]="titleErrorTpl" style="width: 100%;">
+                            <input nz-input formControlName="title" placeholder="Título da publicação" minlength="3"
+                                [(ngModel)]="postTitle" />
+
+                            <ng-template #titleErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required') || control.hasError('minlength')">
+                                    O título precisa ter ao menos 3 caractéres!
+                                </ng-container>
+
+                                <ng-container *ngIf="control.hasError('duplicated')">
+                                    Já existe uma postagem cadastrada com esse título!
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item style="display: flex; flex-direction: column;">
+                        <nz-form-label [nzSpan]="7" nzRequired style="text-align: left;">Resumo</nz-form-label>
+
+                        <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validando..."
+                            [nzErrorTip]="abstractErrorTpl" style="width: 100%;">
+                            <input nz-input formControlName="abstract" placeholder="Resumo da publicação"
+                                minlength="3" />
+
+                            <ng-template #abstractErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required') || control.hasError('minlength')">
+                                    O resumo precisa ter ao menos 3 caractéres!
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item style="display: flex; flex-direction: column;">
+                        <nz-form-label [nzSpan]="7" nzRequired style="text-align: left;">Conteúdo</nz-form-label>
+
+                        <nz-form-control [nzSpan]="12" nzErrorTip="Escreva o conteúdo da postagem!"
+                            style="width: 100%;">
+                            <div [ngxSummernote]="summernoteConfig" formControlName="content"></div>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item style="display: flex; flex-direction: column;">
+                        <nz-form-label [nzSpan]="7" nzRequired style="text-align: left; width: 100%;">Imagem (1980 x
+                            660)
+                            <nz-form-control [nzSpan]="12" style="width: 100%;">
+                                <input type="file" hidden #file accept=".png" (change)="uploadFile($event)"
+                                    style="width: 100%;">
+
+                                <div class="btn-upload">Escolha uma imagem</div>
+                            </nz-form-control>
+                        </nz-form-label>
+
+                        <div class="thumbnail hgroup" *ngIf="downloadURL" style="padding-top: 10px; display: flex; align-items: center;">
+                            <img [src]="downloadURL" style="width: 25%; border: solid 1px #CCC;">
+
+                            <div class="vgroup" style="margin-left: 10px;">
+                                <label class="file-specs">
+                                    Nome:
+                                    {{ arquivo.name }}
+                                </label>
+
+                                <label class="file-specs">
+                                    Tipo:
+                                    {{ arquivo.type }}
+                                </label>
+
+                                <label class="file-specs">
+                                    Tamanho:
+                                    {{ (arquivo.size / 1024).toFixed(2) + 'KB' + ' (' + (arquivo.size / 1048576).toFixed(2) + 'MB)' }}
+                                </label>
+
+                                <label class="file-specs">
+                                    Modificado em:
+                                    {{ arquivo.lastModifiedDate }}
+                                </label>
+                            </div>
+                        </div>
+                    </nz-form-item>
+
+
+                    <nz-form-item class="hgroup tags-form-item" style="flex-direction: row !important;">
+                        <nz-form-label [nzSpan]="7" style="text-align: left; width: auto;">Tags</nz-form-label>
+
+                        <div *ngFor="let tag of tags">
+                            <nz-tag nzMode="checkable" [nzChecked]="tag.checked"
+                                (nzCheckedChange)="checkChange($event)">
+                                #{{ tag.name }}
+                            </nz-tag>
+                        </div>
+                    </nz-form-item>
+
+                    <nz-form-item style="display: flex; flex-direction: column;">
+                        <nz-form-control [nzOffset]="7" [nzSpan]="12" style="margin-left: 0;">
+                            <button nz-button nzType="primary" [disabled]="!postForm.valid">Enviar</button>
+                            <button nz-button (click)="resetForm($event)" class="margin-horizontal">Limpar</button>
+                        </nz-form-control>
+                    </nz-form-item>
+                </form>
+            </div>
+        </div>
+    </nz-content>
+
+</nz-spin>

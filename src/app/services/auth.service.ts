@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   user: User;
-  loggedUser: any = JSON.parse(localStorage.getItem('user'));
 
   constructor(public afAuth: AngularFireAuth, public router: Router) {
     this.afAuth.authState.subscribe((user) => {
@@ -25,7 +24,7 @@ export class AuthService {
     try {
       await this.afAuth.auth.signInWithEmailAndPassword(email, password);
 
-      this.router.navigate(['menu/user-area']);
+      this.router.navigate(['home']);
     } catch (e) {
       alert('Error! ' + e.message);
     }
@@ -34,7 +33,7 @@ export class AuthService {
   async logout() {
     await this.afAuth.auth.signOut();
     localStorage.removeItem('user');
-    // this.router.navigate(['login']);
+    this.router.navigate(['home']);
   }
 
   async register(email: string, password: string) {
@@ -56,16 +55,21 @@ export class AuthService {
 
   async loginWithGoogle() {
     await this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-    this.router.navigate(['menu/user-area']);
+    this.router.navigate(['home']);
   }
 
   async loginWithFacebook() {
     await this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider());
-    this.router.navigate(['menu/user-area']);
+    this.router.navigate(['home']);
   }
 
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return user !== null;
+  }
+
+  get isAuthorized(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user.uid === '8jGPNnaFWud2E901CjgF1Yx8ny12';
   }
 }

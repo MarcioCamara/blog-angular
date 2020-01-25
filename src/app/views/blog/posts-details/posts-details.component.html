@@ -1,0 +1,29 @@
+<nz-content class="content">
+    <div class="inner-content vgroup">
+        <div class="hgroup">
+            <div class="vgroup f1">
+                <div class="f1">
+                    <nz-skeleton [nzActive]="true" *ngIf="!post"></nz-skeleton>
+
+                    <nz-card *ngIf="post" [nzCover]="postTemplate">
+                        <nz-card-meta [nzTitle]="post.title" [nzDescription]="post.abstract"></nz-card-meta>
+
+                        <div class="hgroup margin-vertical">
+                            <div *ngFor="let tag of post.tags" class="margin-rigth">
+                                <nz-tag nzMode="default" [nzChecked]="tag.checked">
+                                    #{{ tag.name }}
+                                </nz-tag>
+                            </div>
+                        </div>
+                        
+                        <div [ngxSummernoteView]="post.content"></div>
+                    </nz-card>
+
+                    <ng-template #postTemplate>
+                        <img [alt]="post.imageDescription" [src]="post.imageSource" />
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</nz-content>

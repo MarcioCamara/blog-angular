@@ -1,0 +1,40 @@
+<div class="container" style="width: 30vw; max-width: 300px;">
+    <div class="row align-items-center">
+        <div class="mx-auto">
+            <h3><i class="fas fa-robot"></i>Zelda Super Chat</h3>
+        </div>
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+        <div class="col-lg-8">
+            <ul #scroll class="messages" [scrollTop]="scroll.scrollHeight">
+                <div *ngFor="let msg of resultados">
+                    <li class="message appeared"
+                        [ngClass]="{'left':msg.remetente === 'chatbot', 'right':msg.remetente === 'eu'}">
+                        <div class="avatar"></div>
+                        <div class="text_wrapper">
+                            <div class="text">
+                                <p class="time"> ({{ msg.data | date:'HH:mm:ss' }})</p>
+                                {{ msg.mensagem }}
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+        <div class="col-sm-6">
+            <input #inputMessage type="text" class="form-control " (keyup.enter)="sendMessage()" [(ngModel)]="msg" />
+        </div>
+
+        <div class="col-sm-2">
+            <button class="btn btn-success sendbtn" (click)="sendMessage()">
+                <i class="far fa-share-square"></i>
+
+                Enviar
+            </button>
+        </div>
+    </div>
+</div>
