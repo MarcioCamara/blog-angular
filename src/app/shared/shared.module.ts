@@ -32,6 +32,9 @@ import {
   GithubOutline,
   MessageOutline,
   MailOutline,
+  FolderOpenOutline,
+  FolderOutline,
+  ReadOutline,
 } from '@ant-design/icons-angular/icons';
 
 import { NgxTypedJsModule } from 'ngx-typed-js';
@@ -60,6 +63,9 @@ const icons: IconDefinition[] = [
   GithubOutline,
   MessageOutline,
   MailOutline,
+  FolderOpenOutline,
+  FolderOutline,
+  ReadOutline,
 ];
 
 @NgModule({

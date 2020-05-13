@@ -37,9 +37,12 @@ body {
 }
 
 .logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
+  height: 7vh!important;
+  background: rgba(255, 255, 255, 0.1)!important;
+  margin: 16px!important;
+  display: flex!important;
+  align-items: center!important;
+  justify-content: center!important;
 }
 
 nz-header {
@@ -226,7 +229,7 @@ textarea {
 }
 
 .left-side-menu {
-  max-width: 150px;
+  max-width: 250px;
 }
 
 nz-layout {
@@ -234,28 +237,36 @@ nz-layout {
 }
 
 .affix-social {
-  position: absolute;
-  top: 15vh;
+  position: fixed;
+  top: 9vh;
   right: 2vw;
+  z-index: 999;
 }
 
 .affix-chatbot {
-  position: absolute;
-  bottom: -50vh;
+  position: fixed;
+  bottom: 1vh;
   right: 2vw;
+  z-index: 999;
+}
+
+.ant-affix {
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  height: 50px !important;
+  width: 52px !important;
+  font-size: 37px !important;
+  cursor: pointer !important;
 }
 
 .affix-chatbot button {
-  width: 5vw;
-  height: 7vh;
+  width: 55px;
+  height: 50px;
 }
 
 .w100 {
   width: 100% !important;
-}
-
-.button-social-media {
-  margin: 5px;
 }
 
 .truncateLines {
@@ -272,4 +283,35 @@ nz-layout {
 
 .dropdown-logout-item:hover {
   background-color: #ccc !important;
+}
+
+.ant-tree li .ant-tree-node-content-wrapper:hover {
+  background-color: #fff !important;
+}
+
+.ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected {
+  background-color: #ccc !important;
+}
+
+.button-social-media {
+  background-color: #171717 !important;
+  border-color: #171717 !important;
+  margin: 5px;
+}
+
+.button-chat {
+  background-color: #f74b4b !important;
+  border-color: #f74b4b !important;
+  margin: 5px;
+}
+
+.ant-modal-body {
+  overflow-y: scroll;
+  height: 60vh;
+  max-height: 80vh;
+}
+
+.ant-timeline-item-head {
+  color: #f74b4b !important;
+  border-color: #f74b4b !important;
 }

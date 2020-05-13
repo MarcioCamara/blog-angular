@@ -9,6 +9,8 @@ import { PostRegisterComponent } from '../../blog/posts-register/posts-register.
 import { PostsDetailsComponent } from '../../blog/posts-details/posts-details.component';
 import { Error403Component } from '../errors/error403/error403.component';
 
+import { ClickOutsideModule } from 'ng-click-outside';
+
 @NgModule({
   declarations: [
     MenuComponent,
@@ -21,6 +23,7 @@ import { Error403Component } from '../errors/error403/error403.component';
   imports: [
     MenuRoutingModule,
     SharedModule,
+    ClickOutsideModule,
   ],
 })
 export class MenuModule { }

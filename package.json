@@ -11,7 +11,8 @@
     "start:ssl": "ng serve -o --port 4201 --ssl --ssl-key localhost.key --ssl-cert localhost.crt",
     "build:prod": "ng build --prod --build-optimizer",
     "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json",
-    "heroku-postbuild": "ng build --prod --build-optimizer --aot"
+    "heroku-postbuild": "ng build --prod --build-optimizer --aot",
+    "deploy": "ng build -ec & ngh"
   },
   "husky": {
     "hooks": {
@@ -39,6 +40,7 @@
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
+    "ng-click-outside": "^5.3.0",
     "ng-zorro-antd": "^8.2.0",
     "ngx-summernote": "^0.7.1",
     "ngx-typed-js": "^1.1.0",

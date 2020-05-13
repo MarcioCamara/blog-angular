@@ -5,7 +5,8 @@
                 <div class="f1 w100">
                     <nz-skeleton [nzActive]="true" *ngIf="!lastPost"></nz-skeleton>
 
-                    <nz-card *ngIf="lastPost" nzHoverable [nzCover]="lastPostTemplate" (click)="goPostDetails(lastPost)">
+                    <nz-card *ngIf="lastPost" nzHoverable [nzCover]="lastPostTemplate"
+                        (click)="goPostDetails(lastPost.uid)">
                         <nz-card-meta [nzAvatar]="avatarTemplate" [nzTitle]="lastPost.title"
                             [nzDescription]="lastPost.authorName + ' em ' + (lastPost.dateRaw | date: 'd \'de\' MMMM \'de\' y \'às\' HH:mm:ss' : 'pt')">
                         </nz-card-meta>
@@ -42,30 +43,32 @@
 
                 <nz-skeleton [nzActive]="true" *ngIf="!paginatedPosts"></nz-skeleton>
 
-                <nz-list *ngIf="paginatedPosts" [nzDataSource]="paginatedPosts" [nzItemLayout]="'vertical'" [nzRenderItem]="post"
-                    [nzPagination]="pagination">
+                <nz-list *ngIf="paginatedPosts" [nzDataSource]="paginatedPosts" [nzItemLayout]="'vertical'"
+                    [nzRenderItem]="post" [nzPagination]="pagination">
                     <ng-template #post let-post>
-                        <nz-list-item [nzContent]="nzContent" [nzActions]="[starAction, likeAction, msgAction]"
-                            [nzExtra]="extra">
+                        <nz-list-item [nzContent]="nzContent" [nzActions]="[likeAction]" [nzExtra]="extra">
+                            <!-- [nzActions]="[starAction, likeAction, msgAction]" -->
                             <ng-template #nzContent>
                                 <div class="truncateLines" [ngxSummernoteView]="post.abstract"></div>
                             </ng-template>
 
-                            <ng-template #starAction><i nz-icon nzType="star" nzTheme="fill"
+                            <!-- <ng-template #starAction><i nz-icon nzType="star" nzTheme="fill"
                                     style="margin-right: 8px; color: #F7B32B;"></i> {{ post.favorites }}
+                            </ng-template> -->
+
+                            <ng-template #likeAction>
+                                <i nz-icon nzType="like" nzTheme="fill"
+                                    style="margin-right: 8px; ; color: #4C9F70;" (click)="likeClick(post)"></i>
+                                {{ post.likes }}
                             </ng-template>
 
-                            <ng-template #likeAction><i nz-icon nzType="like" nzTheme="fill"
-                                    style="margin-right: 8px; ; color: #4C9F70;"></i> {{ post.likes }}
-                            </ng-template>
-
-                            <ng-template #msgAction><i nz-icon nzType="message" nzTheme="fill"
+                            <!-- <ng-template #msgAction><i nz-icon nzType="message" nzTheme="fill"
                                     style="margin-right: 8px; color: #235789;"></i> {{ post.comments }}
-                            </ng-template>
+                            </ng-template> -->
 
                             <nz-list-item-meta [nzAvatar]="post.authorImageSource" [nzTitle]="nzTitle"
                                 [nzDescription]="post.authorName + ' em ' + (post.dateRaw | date: 'd \'de\' MMMM \'de\' y \'às\' HH:mm:ss' : 'pt')">
-                                <ng-template #nzTitle><a (click)="goPostDetails(post)">{{ post.title }}</a>
+                                <ng-template #nzTitle><a (click)="goPostDetails(post.uid)">{{ post.title }}</a>
                                 </ng-template>
                             </nz-list-item-meta>
 
@@ -88,9 +91,26 @@
                 </nz-list>
             </div>
 
-            <!-- <div class="f1 margin-horizontal left-side-menu">
-                <nz-tree [nzData]="categories" nzShowLine (nzClick)="nzEvent($event)"></nz-tree>
-            </div> -->
+            <div class="f1 margin-horizontal left-side-menu">
+                <nz-tree [nzData]="categories" (nzClick)="categoriesClick($event)" [nzTreeTemplate]="nzTreeTemplate">
+                </nz-tree>
+
+                <ng-template #nzTreeTemplate let-node>
+                    <span class="custom-node" [class.active]="activedNode?.key === node.key">
+                        <span *ngIf="!node.isLeaf" (contextmenu)="contextMenu($event, menu)">
+                            <i nz-icon [nzType]="node.isExpanded ? 'folder-open' : 'folder'" (click)="openFolder(node)"
+                                style="color: #F74B4B;"></i>
+
+                            <span class="folder-name">{{ node.title }}</span>
+                        </span>
+
+                        <span *ngIf="node.isLeaf" (contextmenu)="contextMenu($event, menu)">
+                            <i nz-icon nzType="read"></i>
+                            <span class="file-name">{{ node.title }}</span>
+                        </span>
+                    </span>
+                </ng-template>
+            </div>
         </div>
     </div>
 </nz-content>

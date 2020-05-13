@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  public dots1Visible = true;
+  public dots2Visible = true;
+  public dots3Visible = true;
+  public dots4Visible = true;
+
   public typedStrings = [
     'Olá, meu nome é Marcio. ^1000 Sou desenvolvedor web full-stack.',
   ];
@@ -17,9 +23,14 @@ export class HomeComponent implements OnInit {
   public typedCompleted = false;
   public descriptionCompleted = false;
 
+  public myAge: number = 0;
+
+  public isModalVisible = false;
+
   constructor() { }
 
   ngOnInit() {
+    this.myAge = moment().diff(moment([1991, 9, 21]), 'years');
   }
 
   goToFacebook() {
@@ -51,5 +62,27 @@ export class HomeComponent implements OnInit {
   visible: boolean;
   openChatbot() {
     this.visible = false;
+  }
+
+  clickRecents(item: string) {
+    if (item === 'anteros') {
+      window.open('https://anterostextil.com.br/');
+    } else if (item === 'wanda') {
+      window.open('https://wandacamara.github.io/solucoes/');
+    } else if (item === 'runner') {
+      window.open('https://marciocamara.github.io/infinite-runner/');
+    }
+  }
+
+  showModal(): void {
+    this.isModalVisible = true;
+  }
+
+  handleOk(): void {
+    this.isModalVisible = false;
+  }
+
+  handleCancel(): void {
+    this.isModalVisible = false;
   }
 }

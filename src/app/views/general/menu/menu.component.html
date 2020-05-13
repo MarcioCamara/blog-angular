@@ -1,6 +1,10 @@
 <nz-layout class="layout">
-	<nz-sider *ngIf="showMenu" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzBreakpoint]="'xxl'" [nzCollapsedWidth]="0"
-		[nzZeroTrigger]="zeroTrigger">
+	<nz-sider (clickOutside)="onClickOutsideMenu()" *ngIf="showMenu" nzCollapsible [(nzCollapsed)]="isCollapsed"
+		[nzCollapsedWidth]="0">
+		<div class="logo">
+			<img class="logo-header" [src]="headerLogo" (mouseenter)="headerLogo = 'assets/logo_h_o.png'"
+				(mouseleave)="headerLogo = 'assets/logo_h.png'" />
+		</div>
 
 		<ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
 			<li nz-menu-item (click)="goHome()">
@@ -17,30 +21,29 @@
 				</ul>
 			</li>
 
-			<ng-template #blogUnlogged>
+			<!-- <ng-template #blogUnlogged>
 				<li nz-menu-item (click)="goBlogView()">
 					<i nz-icon nzType="form" nzTheme="outline"></i>
 
 					<span>Blog</span>
 				</li>
-			</ng-template>
+			</ng-template> -->
 		</ul>
 	</nz-sider>
 
 	<nz-layout>
 		<nz-header class="header" *ngIf="!authService.isLoggedIn && showMenu; else headerLogged">
-			<img class="logo-header" [src]="headerLogo" (mouseenter)="headerLogo = 'assets/logo_h_o.png'" (mouseleave)="headerLogo = 'assets/logo_h.png'"/>
-
-			<button nz-button nzType="danger" nzShape="round" (click)="login()">
+			<!-- <button nz-button nzType="danger" nzShape="round" (click)="login()">
 				<i nz-icon nzType="login"></i>Login
-			</button>
+			</button> -->
 		</nz-header>
 
 		<ng-template #headerLogged>
 			<nz-header *ngIf="showMenu" class="header">
-				<img class="logo-header" [src]="headerLogo" (mouseenter)="headerLogo = 'assets/logo_h_o.png'" (mouseleave)="headerLogo = 'assets/logo_h.png'"/>
+				<img class="logo-header" [src]="headerLogo" (mouseenter)="headerLogo = 'assets/logo_h_o.png'"
+					(mouseleave)="headerLogo = 'assets/logo_h.png'" />
 
-				<nz-avatar nzSize="large" nzIcon="user" [nzSrc]="authService.user?.photoURL" nz-dropdown
+				<!-- <nz-avatar nzSize="large" nzIcon="user" [nzSrc]="authService.user?.photoURL" nz-dropdown
 					[nzDropdownMenu]="userOptions" class="user-avatar">
 				</nz-avatar>
 
@@ -57,13 +60,13 @@
 						</li>
 
 						<li nz-menu-divider></li>
-						
+
 						<li nz-menu-item (click)="authService.logout()" class="dropdown-logout-item">
 							<i nz-icon nzType="logout" nzTheme="outline"></i>
 							Sair
 						</li>
 					</ul>
-				</nz-dropdown-menu>
+				</nz-dropdown-menu> -->
 			</nz-header>
 		</ng-template>
 

@@ -52,13 +52,15 @@ nz-footer {
   justify-content: space-between;
   padding: 0 30px;
   background-color: #171717;
+  min-height: 10vh!important;
 }
 
 .logo-header {
-  height: 140% !important;
-  margin-top: 6vh;
-  margin-left: 16px;
-  z-index: 1;
+  z-index: 1 !important;
+  margin: 0 !important;
+  height: 6vh !important;
+  width: auto !important;
+  margin-left: 10px!important;
 }
 
 .user-badge {

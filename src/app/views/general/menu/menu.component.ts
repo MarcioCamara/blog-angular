@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
   public user = null;
   public showMenu = true;
 
-  public isCollapsed = false;
+  public isCollapsed = true;
   public notificationsCount = 5;
 
   nodes = [
@@ -80,5 +80,9 @@ export class MenuComponent implements OnInit {
 
   goBlogRegister() {
     this.router.navigate(['posts', 'register']);
+  }
+
+  onClickOutsideMenu() {
+    this.isCollapsed = true;
   }
 }

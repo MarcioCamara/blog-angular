@@ -3,7 +3,7 @@
         <div class="hgroup">
             <div class="vgroup w100">
                 <div class="f1 w100 container">
-                    <nz-affix class="vgroup affix-social" id="affix-container-target">
+                    <nz-affix class="vgroup affix-social" id="affix-container-target" nzOffsetBottom="0">
                         <button class="button-social-media" nz-button [nzType]="'primary'" (click)="goToFacebook()">
                             <i nz-icon nzType="facebook" nzTheme="outline"></i>
                         </button>
@@ -23,24 +23,29 @@
                     </ngx-typed-js>
 
                     <div *ngIf="typedCompleted" class="about">
-                        <div class="description-container">
-                            <img src="../../../../assets/marcio.jpg" class="presentation-image">
+                        <div class="about-container">
+                            <img src="./assets/marcio.jpg" class="presentation-image" (click)="showModal()">
 
-                            <p class="description-text">
-                                Atuo no setor desde meados de <span nz-text><mark>2013</mark></span>.
-                                Tenho experiência no desenvolvimento de sistemas
-                                <span nz-text><mark>ERP</mark></span>, sites
-                                <span nz-text><mark>institucionais</mark></span>,
-                                <span nz-text><mark>aplicativos mobile</mark></span>, entre outros.
-                            </p>
+                            <div class="description-container">
+                                <p class="description-text">
+                                    Atuo no setor desde meados de <span nz-text><mark>2013</mark></span>.
+                                    Tenho experiência no desenvolvimento de sistemas
+                                    <span nz-text><mark>ERP</mark></span>, sites
+                                    <span nz-text><mark>institucionais</mark></span>,
+                                    <span nz-text><mark>aplicativos mobile</mark></span>, entre outros.
+                                </p>
+                            </div>
                         </div>
 
-                        <div class="hgroup">
-                            <nz-card class="f1 margin" nzTitle="Frontend">
-                                Trabalhando com frontend tive a oportunidade de desenvolver várias interfaces
-                                com diferentes funcionalidades, utilizando diversas tecnologias buscando alcançar
-                                os objetivos de UI/UX propostos e tornar o uso da interface o mais agradável e simples
-                                possível
+                        <div class="hgroup scrolling-wrapper">
+                            <nz-card class="f1 margin card-skills" nzTitle="Frontend">
+                                <div>
+                                    Trabalhando com frontend tive a oportunidade de desenvolver várias interfaces
+                                    com diferentes funcionalidades, utilizando diversas tecnologias buscando alcançar
+                                    os objetivos de UI/UX propostos e tornar o uso da interface o mais agradável e
+                                    simples
+                                    possível
+                                </div>
 
                                 <nz-divider nzText="Tecnologias"></nz-divider>
 
@@ -76,10 +81,12 @@
                                 </nz-tag>
                             </nz-card>
 
-                            <nz-card class="f1 margin" nzTitle="Backend">
-                                Enquanto atuando com backend, procurei sempre desenvolver os caminhos para
-                                comunicações entre os usuários e os dados da forma mais simples e rápida possível,
-                                tendo sempre a segurança dos dados como foco principal
+                            <nz-card class="f1 margin card-skills" nzTitle="Backend">
+                                <div>
+                                    Enquanto atuando com backend, procurei sempre desenvolver os caminhos para
+                                    comunicações entre os usuários e os dados da forma mais simples e rápida possível,
+                                    tendo sempre a segurança dos dados como foco principal
+                                </div>
 
                                 <nz-divider nzText="Tecnologias"></nz-divider>
 
@@ -133,12 +140,15 @@
                                 </nz-tag>
                             </nz-card>
 
-                            <nz-card class="f1 margin" nzTitle="Outras Ferramentas">
-                                Além de ferramentas focadas em frontend e backend, trabalhei com algumas ferramentas
-                                auxiliares, desde ferramentas focadas em organização de equipe e demandas, até
-                                organização
-                                e melhores práticas de código, versionamento, layout, linguagens não relacionadas a web,
-                                etc.
+                            <nz-card class="f1 margin card-skills" nzTitle="Outras Ferramentas">
+                                <div>
+                                    Além de ferramentas focadas em frontend e backend, trabalhei com algumas ferramentas
+                                    auxiliares, desde ferramentas focadas em organização de equipe e demandas, até
+                                    organização
+                                    e melhores práticas de código, versionamento, layout, linguagens não relacionadas a
+                                    web,
+                                    etc.
+                                </div>
 
                                 <nz-divider nzText="Tecnologias"></nz-divider>
 
@@ -228,17 +238,188 @@
                                 </ng-template>
                             </nz-card>
                         </div>
+
+                        <nz-divider nzText="Meus Trabalhos Recentes"></nz-divider>
+
+                        <div class="hgroup scrolling-wrapper">
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable [nzCover]="coverAnteros"
+                                (click)="clickRecents('anteros')">
+                                <nz-card-meta nzTitle="Anteros Têxtil" nzDescription="https://anterostextil.com.br/">
+                                </nz-card-meta>
+                            </nz-card>
+
+                            <ng-template #coverAnteros>
+                                <img alt="Anteros Têxtil" src="assets/portfolio/anteros.png" />
+                            </ng-template>
+
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable [nzCover]="coverWanda"
+                                (click)="clickRecents('wanda')">
+                                <nz-card-meta nzTitle="Wanda Soluções em Limpeza"
+                                    nzDescription="https://wandacamara.github.io/solucoes/">
+                                </nz-card-meta>
+                            </nz-card>
+
+                            <ng-template #coverWanda>
+                                <img alt="Wanda Soluções em Limpeza" src="assets/portfolio/wanda.png" />
+                            </ng-template>
+
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable [nzCover]="coverRunner"
+                                (click)="clickRecents('runner')">
+                                <nz-card-meta nzTitle="JS Super Infinite Runner 2D"
+                                    nzDescription="https://marciocamara.github.io/infinite-runner/">
+                                </nz-card-meta>
+                            </nz-card>
+
+                            <ng-template #coverRunner>
+                                <img alt="JS Super Infinite Runner 2D" src="assets/portfolio/runner.png" />
+                            </ng-template>
+                        </div>
+
+                        <nz-modal [(nzVisible)]="isModalVisible" nzTitle="MARCIO FERREIRA CÂMARA JUNIOR"
+                            (nzOnCancel)="handleCancel()">
+                            <p class="curriculum-paragraph">Brasileiro, casado, {{ myAge }} anos</p>
+                            <!-- <p>Rua Capitão Manoel dos Santos Sobrinho, 282</p> -->
+                            <p class="curriculum-paragraph">Americana - SP</p>
+                            <p class="curriculum-paragraph">Telefone: (19) 99517-4367</p>
+                            <p class="curriculum-paragraph">E-mail: marciocamarajr@gmail.com</p>
+
+                            <h3 class="curriculum-subtitle">OBJETIVO</h3>
+                            <p class="curriculum-paragraph">Atuar na área de Desenvolvimento ou relacionadas</p>
+
+                            <h3 class="curriculum-subtitle">FORMAÇÃO</h3>
+                            <p class="curriculum-paragraph">Tecnólogo em Análise e Desenvolvimento de Sistemas.
+                                Faculdade Anhembi Morumbi (EAD),
+                                previsão de conclusão em 2021.</p>
+
+                            <h3 class="curriculum-subtitle" style="margin-bottom: 5px;">EXPERIÊNCIA PROFISSIONAL</h3>
+                            <nz-timeline>
+                                <!-- [nzPending]="'Recording...'" -->
+                                <nz-timeline-item>
+                                    <p style="font-weight: bold; color: #f74b4b !important;">
+                                        AGO/2019 - ATUAL - MKDATA SOFTWARES
+                                    </p>
+
+                                    <p class="curriculum-paragraph">
+                                        <span style="font-weight: bold;">
+                                            Cargo:
+                                        </span>
+                                        Desenvolvedor Junior III
+                                    </p>
+
+                                    <p class="curriculum-paragraph">
+                                        <span style="font-weight: bold;">
+                                            Principais atividades:
+                                        </span>
+                                        Análise e Desenvolvimento de Sistemas Web, tanto o backend quanto o
+                                        frontend, utilizando diversos frameworks e
+                                        <span *ngIf="dots1Visible" (click)="dots1Visible = false"
+                                            style="color: #1A0DAB; cursor: pointer;"> mais...</span>
+                                        <span *ngIf="!dots1Visible"> linguagens distintas (como HTML, Java, CSS,
+                                            Javascript, Angular, Typescript, PL/SQL, etc), em sistemas proprietários na
+                                            área de saúde para consultórios, pronto atendimentos e clínicas, cumprindo
+                                            cronogramas baseado na metodologia ágil Scrum, versionando através dos
+                                            softwares SVN e GIT, procurando seguir as boas práticas no desenvolvimento e
+                                            sempre atender aos clientes da melhor forma possível.</span>
+                                    </p>
+                                </nz-timeline-item>
+
+                                <nz-timeline-item>
+                                    <p style="font-weight: bold; color: #f74b4b !important;">
+                                        AGO/2018 - JUN/2019 - AIGEN SOLUÇÕES DIGITAIS
+                                    </p>
+
+                                    <p class="curriculum-paragraph">
+                                        <span style="font-weight: bold;">
+                                            Cargo:
+                                        </span>
+                                        Desenvolvedor Web
+                                    </p>
+
+                                    <p class="curriculum-paragraph">
+                                        <span style="font-weight: bold;">
+                                            Principais atividades:
+                                        </span>
+                                        Análise e Desenvolvimento de Sistemas Web, tanto o backend quanto o
+                                        frontend, utilizando diversos frameworks e
+                                        <span *ngIf="dots2Visible" (click)="dots2Visible = false"
+                                            style="color: #1A0DAB; cursor: pointer;"> mais...</span>
+                                        <span *ngIf="!dots2Visible"> linguagens distintas (como HTML, PHP, CSS,
+                                            Javascript, jQuery, Laravel, CakePHP, etc).</span>
+                                    </p>
+                                </nz-timeline-item>
+
+                                <nz-timeline-item>
+                                    <p style="font-weight: bold; color: #f74b4b !important;">
+                                        SET/2013 - AGO/2018 - CLARO BRASIL S.A.
+                                    </p>
+
+                                    <p class="curriculum-paragraph">
+                                        <span style="font-weight: bold;">
+                                            Cargo:
+                                        </span>
+                                        Analista de Backoffice I
+                                    </p>
+
+                                    <p class="curriculum-paragraph">
+                                        <span style="font-weight: bold;">
+                                            Principais atividades:
+                                        </span>
+                                        Gerar e atualizar relatórios voltados a volumetria de ocorrências e casos,
+                                        produtividade dos operadores,
+                                        <span *ngIf="dots3Visible" (click)="dots3Visible = false"
+                                            style="color: #1A0DAB; cursor: pointer;"> mais...</span>
+                                        <span *ngIf="!dots3Visible"> nível de serviço, reorientações pontuais, etc. Para
+                                            facilitar tal rotina de atualizações e gerar analíticos para
+                                            disponibilizações a alguns parceiros internos e a gerência, fazia- se uso de
+                                            um banco de dados no qual utilizava-se a linguagem MySQL afim de
+                                            realizarem-se cruzamentos e demais operações. Utilizava-se ainda a linguagem
+                                            VBA, a linguagem BATCH e a linguagem de script AutoHotKey, bem como
+                                            desenvolviam-se alguns sites internos básicos para exibição de tais dados.
+                                            Tais relatórios possuíam rotina de atualização diária e eram cumpridos
+                                            dentro do prazo previamente acordado.</span>
+                                    </p>
+                                </nz-timeline-item>
+                            </nz-timeline>
+
+                            <h3 class="curriculum-subtitle" style="margin-top: 0;">QUALIFICAÇÕES E ATIVIDADES
+                                COMPLEMENTARES</h3>
+                            <ul>
+                                <li class="curriculum-paragraph">Conhecimento intermediário em inglês (Certificação
+                                    TOEIC Bridge);</li>
+                                <li class="curriculum-paragraph">Conhecimento nas principais linguagens Web (como PHP,
+                                    HTML, CSS, Javascript, Java [Backend], Typescript, etc) e seus principais
+                                    <span *ngIf="dots4Visible" (click)="dots4Visible = false"
+                                        style="color: #1A0DAB; cursor: pointer;"> mais...</span>
+                                    <span *ngIf="!dots4Visible"> frameworks e ferramentas (como Laravel, CakePHP,
+                                        jQuery, Ajax, Angular, PL/SQL, MySQL,
+                                        etc);</span>
+                                </li>
+                                <li class="curriculum-paragraph">Conhecimentos em Ionic e Xamarin Forms;</li>
+                                <li class="curriculum-paragraph">Vivência em equipe orientada pela metodologia Ágil
+                                    Scrum e versionamento em GIT e SVN</li>
+                            </ul>
+
+                            <h3 class="curriculum-subtitle">ADICIONAIS</h3>
+                            <ul>
+                                <li class="curriculum-paragraph">Disponibilidade para mudanças;</li>
+                                <li class="curriculum-paragraph">Veículo próprio e habilitação AB</li>
+                            </ul>
+
+                            <div *nzModalFooter>
+                                <button nz-button nzType="default" (click)="handleOk()">Ok</button>
+                            </div>
+                        </nz-modal>
                     </div>
 
-                    <nz-affix *ngIf="typedCompleted" nzOffsetBottom="0" class="vgroup affix-chatbot" [nzTarget]="target"
+
+                    <nz-affix nzOffsetBottom="0" class="vgroup affix-chatbot" [nzTarget]="target"
                         id="affix-container-chat">
-                        <button class="button-social-media" nz-button [nzType]="'primary'" nz-popover
-                            nzPopoverTrigger="click" nzPopoverPlacement="leftBottom" [nzPopoverContent]="Chatbot"
-                            (click)="openChatbot()">
+                        <button class="button-chat" nz-button [nzType]="'primary'" nz-popover nzPopoverTrigger="click"
+                            nzPopoverPlacement="leftBottom" [nzPopoverContent]="chatbot" (click)="openChatbot()">
                             <i nz-icon nzType="message" nzTheme="outline"></i>
                         </button>
 
-                        <ng-template #Chatbot>
+                        <ng-template #chatbot>
                             <app-chatbot style="max-width: 30vw;"></app-chatbot>
                         </ng-template>
                     </nz-affix>
