@@ -13,13 +13,13 @@
 				<span>Home</span>
 			</li>
 
-			<li *ngIf="authService.isLoggedIn && this.authService.isAuthorized; else blogUnlogged" nz-submenu
+			<!-- <li *ngIf="authService.isLoggedIn && this.authService.isAuthorized; else blogUnlogged" nz-submenu
 				nzTitle="Blog" nzIcon="form">
 				<ul>
 					<li nz-menu-item (click)="goBlogRegister()">Cadastrar</li>
 					<li nz-menu-item (click)="goBlogView()">Visualizar</li>
 				</ul>
-			</li>
+			</li> -->
 
 			<!-- <ng-template #blogUnlogged>
 				<li nz-menu-item (click)="goBlogView()">
