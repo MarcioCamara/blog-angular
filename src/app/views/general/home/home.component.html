@@ -242,8 +242,8 @@
                         <nz-divider nzText="Meus Trabalhos Recentes"></nz-divider>
 
                         <div class="hgroup scrolling-wrapper">
-                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable [nzCover]="coverAnteros"
-                                (click)="clickRecents('anteros')">
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
+                                [nzCover]="coverAnteros" (click)="clickRecents('anteros')">
                                 <nz-card-meta nzTitle="Anteros Têxtil" nzDescription="https://anterostextil.com.br/">
                                 </nz-card-meta>
                             </nz-card>
@@ -252,8 +252,8 @@
                                 <img alt="Anteros Têxtil" src="assets/portfolio/anteros.png" />
                             </ng-template>
 
-                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable [nzCover]="coverWanda"
-                                (click)="clickRecents('wanda')">
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
+                                [nzCover]="coverWanda" (click)="clickRecents('wanda')">
                                 <nz-card-meta nzTitle="Wanda Soluções em Limpeza"
                                     nzDescription="https://wandacamara.github.io/solucoes/">
                                 </nz-card-meta>
@@ -263,8 +263,8 @@
                                 <img alt="Wanda Soluções em Limpeza" src="assets/portfolio/wanda.png" />
                             </ng-template>
 
-                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable [nzCover]="coverRunner"
-                                (click)="clickRecents('runner')">
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
+                                [nzCover]="coverRunner" (click)="clickRecents('runner')">
                                 <nz-card-meta nzTitle="JS Super Infinite Runner 2D"
                                     nzDescription="https://marciocamara.github.io/infinite-runner/">
                                 </nz-card-meta>
@@ -412,8 +412,7 @@
                     </div>
 
 
-                    <nz-affix nzOffsetBottom="0" class="vgroup affix-chatbot" [nzTarget]="target"
-                        id="affix-container-chat">
+                    <nz-affix nzOffsetBottom="0" class="vgroup affix-chatbot" id="affix-container-chat">
                         <button class="button-chat" nz-button [nzType]="'primary'" nz-popover nzPopoverTrigger="click"
                             nzPopoverPlacement="leftBottom" [nzPopoverContent]="chatbot" (click)="openChatbot()">
                             <i nz-icon nzType="message" nzTheme="outline"></i>
