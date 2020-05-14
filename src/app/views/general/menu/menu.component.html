@@ -2,8 +2,7 @@
 	<nz-sider (clickOutside)="onClickOutsideMenu()" *ngIf="showMenu" nzCollapsible [(nzCollapsed)]="isCollapsed"
 		[nzCollapsedWidth]="0">
 		<div class="logo">
-			<img class="logo-header" [src]="headerLogo" (mouseenter)="headerLogo = 'assets/logo_h_o.png'"
-				(mouseleave)="headerLogo = 'assets/logo_h.png'" />
+			<img class="logo-header" src="./assets/logo_h.png" />
 		</div>
 
 		<ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
@@ -40,8 +39,8 @@
 
 		<ng-template #headerLogged>
 			<nz-header *ngIf="showMenu" class="header">
-				<img class="logo-header" [src]="headerLogo" (mouseenter)="headerLogo = 'assets/logo_h_o.png'"
-					(mouseleave)="headerLogo = 'assets/logo_h.png'" />
+				<!-- <img class="logo-header" [src]="headerLogo" (mouseenter)="headerLogo = 'assets/logo_h_o.png'"
+					(mouseleave)="headerLogo = 'assets/logo_h.png'" /> -->
 
 				<!-- <nz-avatar nzSize="large" nzIcon="user" [nzSrc]="authService.user?.photoURL" nz-dropdown
 					[nzDropdownMenu]="userOptions" class="user-avatar">

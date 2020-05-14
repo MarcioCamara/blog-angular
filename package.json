@@ -12,7 +12,7 @@
     "build:prod": "ng build --prod --build-optimizer",
     "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json",
     "heroku-postbuild": "ng build --prod --build-optimizer --aot",
-    "deploy": "ng build -ec & ngh"
+    "deploy": "ng build --prod --output-path docs --base-href /"
   },
   "husky": {
     "hooks": {
