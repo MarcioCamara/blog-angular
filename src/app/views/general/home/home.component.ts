@@ -26,6 +26,9 @@ export class HomeComponent implements OnInit {
   public myAge: number = 0;
 
   public isModalVisible = false;
+  public isWebModalVisible = false;
+  public isDesktopModalVisible = false;
+  public isMobileModalVisible = false;
 
   constructor() { }
 
@@ -71,6 +74,12 @@ export class HomeComponent implements OnInit {
       window.open('https://wandacamara.github.io/solucoes/');
     } else if (item === 'runner') {
       window.open('https://marciocamara.github.io/infinite-runner/');
+    } else if (item === 'sikck161') {
+      window.open('https://sick161.github.io/home/');
+    } else if (item === 'key2text') {
+      window.open('https://marciocamara.github.io/key2text-ahk/');
+    } else if (item === 'trayOpener') {
+      window.open('https://marciocamara.github.io/trayopener/');
     }
   }
 
@@ -78,11 +87,38 @@ export class HomeComponent implements OnInit {
     this.isModalVisible = true;
   }
 
+  showJobsModal(modal: string): void {
+    if (modal === 'web') {
+      this.isWebModalVisible = true;
+    } else if (modal === 'desktop') {
+      this.isDesktopModalVisible = true;
+    } else if (modal === 'mobile') {
+      this.isMobileModalVisible = true;
+    }
+  }
+
   handleOk(): void {
     this.isModalVisible = false;
   }
 
-  handleCancel(): void {
-    this.isModalVisible = false;
+  handleJobsOk(modal: string): void {
+    if (modal === 'web') {
+      this.isWebModalVisible = false;
+    } else if (modal === 'desktop') {
+      this.isDesktopModalVisible = false;
+    } else if (modal === 'mobile') {
+      this.isMobileModalVisible = false;
+    }
   }
+
+  handleJobsCancel(modal: string): void {
+    if (modal === 'web') {
+      this.isWebModalVisible = false;
+    } else if (modal === 'desktop') {
+      this.isDesktopModalVisible = false;
+    } else if (modal === 'mobile') {
+      this.isMobileModalVisible = false;
+    }
+  }
+
 }

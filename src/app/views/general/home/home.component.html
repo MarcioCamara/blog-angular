@@ -243,13 +243,46 @@
 
                         <div class="hgroup scrolling-wrapper">
                             <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
+                                [nzCover]="coverWeb" (click)="showJobsModal('web')">
+                                <nz-card-meta nzTitle="Web" nzDescription="Projetos implementados via web">
+                                </nz-card-meta>
+                            </nz-card>
+
+                            <ng-template #coverWeb>
+                                <img alt="Projetos Web" src="./assets/portfolio/jobs-web.png" />
+                            </ng-template>
+
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
+                                [nzCover]="coverDesktop" (click)="showJobsModal('desktop')">
+                                <nz-card-meta nzTitle="Desktop" nzDescription="Projetos implementados via desktop">
+                                </nz-card-meta>
+                            </nz-card>
+
+                            <ng-template #coverDesktop>
+                                <img alt="Projetos Desktop" src="./assets/portfolio/jobs-desktop.png" />
+                            </ng-template>
+
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
+                                [nzCover]="coverMobile" (click)="showJobsModal('mobile')">
+                                <nz-card-meta nzTitle="Mobile" nzDescription="Projetos implementados via mobile">
+                                </nz-card-meta>
+                            </nz-card>
+
+                            <ng-template #coverMobile>
+                                <img alt="Projetos Mobile" src="./assets/portfolio/jobs-mobile.png" />
+                            </ng-template>
+                        </div>
+
+                        <nz-modal [(nzVisible)]="isWebModalVisible" nzTitle="PROJETOS WEB"
+                            (nzOnCancel)="handleJobsCancel('web')">
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
                                 [nzCover]="coverAnteros" (click)="clickRecents('anteros')">
                                 <nz-card-meta nzTitle="Anteros Têxtil" nzDescription="https://anterostextil.com.br/">
                                 </nz-card-meta>
                             </nz-card>
 
                             <ng-template #coverAnteros>
-                                <img alt="Anteros Têxtil" src="assets/portfolio/anteros.png" />
+                                <img alt="Anteros Têxtil" src="./assets/portfolio/anteros.png" />
                             </ng-template>
 
                             <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
@@ -260,7 +293,7 @@
                             </nz-card>
 
                             <ng-template #coverWanda>
-                                <img alt="Wanda Soluções em Limpeza" src="assets/portfolio/wanda.png" />
+                                <img alt="Wanda Soluções em Limpeza" src="./assets/portfolio/wanda.png" />
                             </ng-template>
 
                             <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
@@ -271,9 +304,70 @@
                             </nz-card>
 
                             <ng-template #coverRunner>
-                                <img alt="JS Super Infinite Runner 2D" src="assets/portfolio/runner.png" />
+                                <img alt="JS Super Infinite Runner 2D" src="./assets/portfolio/runner.png" />
                             </ng-template>
-                        </div>
+
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
+                                [nzCover]="coverSick161" (click)="clickRecents('sikck161')">
+                                <nz-card-meta nzTitle="Sick161" nzDescription="https://sick161.github.io/home/">
+                                </nz-card-meta>
+                            </nz-card>
+
+                            <ng-template #coverSick161>
+                                <img alt="Sick 161" src="./assets/portfolio/sick161.png" />
+                            </ng-template>
+
+                            <div *nzModalFooter>
+                                <button nz-button nzType="default" (click)="handleJobsOk('web')">Ok</button>
+                            </div>
+                        </nz-modal>
+
+                        <nz-modal [(nzVisible)]="isDesktopModalVisible" nzTitle="PROJETOS DESKTOP"
+                            (nzOnCancel)="handleJobsCancel('desktop')">
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
+                                [nzCover]="coverKey2Text" (click)="clickRecents('key2text')">
+                                <nz-card-meta nzTitle="Key2Text"
+                                    nzDescription="https://marciocamara.github.io/key2text-ahk/">
+                                </nz-card-meta>
+                            </nz-card>
+
+                            <ng-template #coverKey2Text>
+                                <img alt="Key2Text" src="./assets/portfolio/key2text.png" />
+                            </ng-template>
+
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
+                                [nzCover]="coverTrayOpener" (click)="clickRecents('trayOpener')">
+                                <nz-card-meta nzTitle="Electron TrayOpener"
+                                    nzDescription="https://marciocamara.github.io/trayopener/">
+                                </nz-card-meta>
+                            </nz-card>
+
+                            <ng-template #coverTrayOpener>
+                                <img alt="Electron TrayOpener" src="./assets/portfolio/trayopener.png" /> 
+                            </ng-template>
+
+                            <div *nzModalFooter>
+                                <button nz-button nzType="default" (click)="handleJobsOk('desktop')">Ok</button>
+                            </div>
+                        </nz-modal>
+
+                        <nz-modal [(nzVisible)]="isMobileModalVisible" nzTitle="PROJETOS MOBILE"
+                            (nzOnCancel)="handleJobsCancel('mobile')">
+                            <nz-card class="f1 margin card-jobs" style="min-width: 30%;" nzHoverable
+                                [nzCover]="coverBmiCalculator" (click)="clickRecents('bmiCalculator')">
+                                <nz-card-meta nzTitle="BMI Calculator"
+                                    nzDescription="https://marciocamara.github.io/bmi-calculator/">
+                                </nz-card-meta>
+                            </nz-card>
+
+                            <ng-template #coverBmiCalculator>
+                                <img alt="BMI Calculator" src="./assets/portfolio/bmi-calculator.png" />
+                            </ng-template>
+
+                            <div *nzModalFooter>
+                                <button nz-button nzType="default" (click)="handleJobsOk('mobile')">Ok</button>
+                            </div>
+                        </nz-modal>
 
                         <nz-modal [(nzVisible)]="isModalVisible" nzTitle="MARCIO FERREIRA CÂMARA JUNIOR"
                             (nzOnCancel)="handleCancel()">
@@ -410,7 +504,6 @@
                             </div>
                         </nz-modal>
                     </div>
-
 
                     <nz-affix nzOffsetBottom="0" class="vgroup affix-chatbot" id="affix-container-chat">
                         <button class="button-chat" nz-button [nzType]="'primary'" nz-popover nzPopoverTrigger="click"

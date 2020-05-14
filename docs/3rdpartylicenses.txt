@@ -566,8 +566,6 @@ ng-zorro-antd/layout
 
 ng-zorro-antd/list
 
-ng-zorro-antd/menu
-
 ng-zorro-antd/message
 
 ng-zorro-antd/modal
